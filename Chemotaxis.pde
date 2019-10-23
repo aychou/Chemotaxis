@@ -1,13 +1,60 @@
- //declare bacteria variables here   
+
+/* @pjs preload="sky.png"; */
+Bacteria[] bye;
+PImage photo;
+
  void setup()   
  {     
- 	//initialize bacteria variables here   
+ 	size (500,500);
+ 	frameRate(80);
+ 	bye=new Bacteria[1000];
+ 	for(int i=0; i<bye.length;i++)
+ 	{
+ 		bye[i] = new Bacteria ((int)(Math.random()*6)+200,(int)(Math.random()*6)+200);
+ 	}
  }   
  void draw()   
  {    
- 	//move and show the bacteria   
- }  
- class Bacteria    
- {     
- 	//lots of java!   
+ 	background(0);
+ 	photo= loadImage("sky.png");
+ 	image(photo,0,0,700,700);
+ 	for(int i =0; i<bye.length;i++ ){
+ 		bye[i].walk();
+ 		bye[i].show();
+ 	}
+
+ } 
+
+ class Bacteria  
+  {     
+ 	int myX;
+	int myY;
+	Bacteria(int x, int y){
+		myX = x;
+		myY = y;
+	}
+	void walk()
+	{
+		if (mouseX>myX){
+			myX=myX+(int)(Math.random()*6)-1;
+		}
+		else
+		{
+			myX=myX+(int)(Math.random()*6)-4;
+		}
+		if (mouseY>myY){
+			myY=myY+(int)(Math.random()*6)-1;
+		}
+		else
+		{
+			myY=myY+(int)(Math.random()*6)-4;
+		}
+	}  
+
+	void show()
+	{
+		fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
+		ellipse(myX, myY, 20, 20);
+
+	}
  }    
