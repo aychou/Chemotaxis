@@ -1,13 +1,15 @@
 
 /* @pjs preload="sky.png"; */
+/* @pjs preload="starz.png"; */
 Bacteria[] bye;
 PImage photo;
+PImage phot;
 
  void setup()   
  {     
  	size (500,500);
- 	frameRate(80);
- 	bye=new Bacteria[1000];
+ 	frameRate(100);
+ 	bye=new Bacteria[50];
  	for(int i=0; i<bye.length;i++)
  	{
  		bye[i] = new Bacteria ((int)(Math.random()*6)+200,(int)(Math.random()*6)+200);
@@ -17,6 +19,7 @@ PImage photo;
  {    
  	background(0);
  	photo= loadImage("sky.png");
+ 	phot= loadImage("starz.png");
  	image(photo,0,0,700,700);
  	for(int i =0; i<bye.length;i++ ){
  		bye[i].walk();
@@ -36,25 +39,25 @@ PImage photo;
 	void walk()
 	{
 		if (mouseX>myX){
-			myX=myX+(int)(Math.random()*6)-1;
+			myX=myX+(int)(Math.random()*20)-6;
 		}
 		else
 		{
-			myX=myX+(int)(Math.random()*6)-4;
+			myX=myX+(int)(Math.random()*20)-15;
 		}
 		if (mouseY>myY){
-			myY=myY+(int)(Math.random()*6)-1;
+			myY=myY+(int)(Math.random()*20)-6;
 		}
 		else
 		{
-			myY=myY+(int)(Math.random()*6)-4;
+			myY=myY+(int)(Math.random()*20)-15;
 		}
 	}  
 
 	void show()
 	{
-		fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
-		ellipse(myX, myY, 20, 20);
+		
+		image(phot,myX,myY,150,150);
 
 	}
  }    
