@@ -9,7 +9,7 @@ PImage phot;
  {     
  	size (500,500);
  	frameRate(100);
- 	bye=new Bacteria[10];
+ 	bye=new Bacteria[5];
  	for(int i=0; i<bye.length;i++)
  	{
  		bye[i] = new Bacteria ((int)(Math.random()*6)+200,(int)(Math.random()*6)+200);
