@@ -14,7 +14,12 @@ PImage phot;
  	{
  		bye[i] = new Bacteria ((int)(Math.random()*6)+200,(int)(Math.random()*6)+200);
  	}
+ 	
+ 	  for(int i=0; i<bye.length;i++){
+ 	  	redraw();
+ 	  }
  }   
+
  void draw()   
  {    
  	background(0);
